@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstPlayable_CalebWolthers_22012024
+namespace WalkOfLegends
 {
     internal class UI
     {

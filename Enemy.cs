@@ -7,7 +7,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
 
 
-namespace FirstPlayable_CalebWolthers_22012024
+namespace WalkOfLegends
 {
 
     internal abstract class Enemy

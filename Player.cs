@@ -6,7 +6,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstPlayable_CalebWolthers_22012024
+namespace WalkOfLegends
 {
     internal class Player
     {

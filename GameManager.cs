@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FirstPlayable_CalebWolthers_22012024
+namespace WalkOfLegends
 {
     internal class GameManager
     {

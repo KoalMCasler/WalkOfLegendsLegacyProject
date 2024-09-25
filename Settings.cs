@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstPlayable_CalebWolthers_22012024
+namespace WalkOfLegends
 {
     internal class Settings
     {
@@ -17,7 +17,7 @@ namespace FirstPlayable_CalebWolthers_22012024
         //Player Settings
         //---------------
         public static char playerChar = 'P';
-        public static int playerHealth = 100000000;
+        public static int playerHealth = 500;
         public static int playerAttack = 100;
         public static int playerStartPosX = 4;
         public static int playerStartPosY = 20;

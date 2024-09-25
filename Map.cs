@@ -8,7 +8,7 @@ using static System.Runtime.CompilerServices.RuntimeHelpers;
 using System.Reflection.Emit;
 using System.Security.Policy;
 
-namespace FirstPlayable_CalebWolthers_22012024
+namespace WalkOfLegends
 {
     internal class Map
     {

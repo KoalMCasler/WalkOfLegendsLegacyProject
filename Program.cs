@@ -11,7 +11,7 @@ using System.Reflection.Emit;
 
 
 
-namespace FirstPlayable_CalebWolthers_22012024
+namespace WalkOfLegends
 {
     internal class Program
     {
