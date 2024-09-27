@@ -9,8 +9,8 @@ namespace WalkOfLegends
     internal abstract class Item
     {
 
-        private Map map;
-        private Player player;
+        public Map map;
+        public Player player;
         public UI ui;
         public char Char;
         public string name;

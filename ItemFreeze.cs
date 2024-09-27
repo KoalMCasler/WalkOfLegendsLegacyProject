@@ -10,9 +10,9 @@ namespace WalkOfLegends
     internal class ItemFreeze : Item
     {
 
-        private Player player;
-        private Map map;
-        private UI ui;
+        //private Player player; removed this as it is already inherited from item
+        //private Map map;
+        //private UI ui;
         private int effectTime;
 
         public ItemFreeze(Map map, Player player, UI ui) : base(map, player, ui)
