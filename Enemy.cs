@@ -22,14 +22,14 @@ namespace WalkOfLegends
         public int posY;
         protected bool isDead;
         public static int enemyCount;
-        private Map map;
-        private Player player;
+        public Map map;
+        public Player player;
         public HealthSystem healthSystem;
 
-        public Enemy(Map map, Player player)
+        public Enemy()
         {
-            this.map = map;
-            this.player = player;
+            //this.map = map; removed this as it is unessicary for enemies.
+            //this.player = player;
             healthSystem = new HealthSystem(health);
         }
 

@@ -13,14 +13,14 @@ namespace WalkOfLegends
         private int nextPosY;
         private int lastPosX;
         private int lastPosY;
-        private Player player;
-        private Map map;
-        public HealthSystem healthSystem;
+        //private Player player;
+        //private Map map; All removed as not neaded, all covered by derived class.
+        //public HealthSystem healthSystem;
 
-        public EnemyGoblin(Map map, Player player) : base(map, player) 
+        public EnemyGoblin(Map gameMap, Player activePlayer)
         {
-            this.map = map;
-            this.player = player;
+            map = gameMap;
+            player = activePlayer;
             maxHealth = Settings.goblinHealth;
             health = maxHealth;
             name = Settings.goblinName;
@@ -28,7 +28,7 @@ namespace WalkOfLegends
             damage = Settings.goblinDamage;
             dir = "down";
             isDead = false;
-            healthSystem = new HealthSystem(health);
+            //healthSystem = new HealthSystem(health);
         }
 
 

@@ -13,14 +13,14 @@ namespace WalkOfLegends
         private int nextPosY;
         private int lastPosX;
         private int lastPosY;
-        private Player player;
-        private Map map;
-        public HealthSystem healthSystem;
+        //private Player player;
+        //private Map map; All removed as not neaded, all covered by derived class.
+        //public HealthSystem healthSystem;
 
-        public EnemyOrc(Map map, Player player) : base(map, player)
+        public EnemyOrc(Map gameMap, Player activePlayer)
         {
-            this.map = map;
-            this.player = player;
+            map = gameMap;
+            player = activePlayer;
             maxHealth = Settings.orcHealth;
             health = maxHealth;
             name = Settings.orcName;
@@ -28,7 +28,7 @@ namespace WalkOfLegends
             damage = Settings.orcDamage;
             dir = "down";
             isDead = false;
-            healthSystem = new HealthSystem(health);
+            //healthSystem = new HealthSystem(health); removed as not neaded, all covered by derived class.
         }
 
 
