@@ -26,6 +26,7 @@ namespace WalkOfLegends
             name = Settings.goblinName;
             Char = Settings.goblinChar;
             damage = Settings.goblinDamage;
+            enemyCount += 1;//fixes enemy count on HUD.
             dir = "down";
             isDead = false;
             //healthSystem = new HealthSystem(health);
@@ -98,13 +99,14 @@ namespace WalkOfLegends
         {
             if (isDead == false)
             {
-                player.attack += damage;
+                player.coins += damage;
             }
             health = 0;
             map.map[posY, posX] = '`';
             Char = '`';
             map.DisplayMap();
             isDead = true;
+            enemyCount -= 1;//fixes enemy count on HUD.
             //enemyCount--;
         }
 

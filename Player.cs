@@ -14,6 +14,7 @@ namespace WalkOfLegends
         public int moves;
         public int health;
         public int attack;
+        public int coins;
         public int posX;
         public int posY;
         public int nextPosX;

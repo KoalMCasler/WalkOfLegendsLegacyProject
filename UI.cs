@@ -123,15 +123,15 @@ namespace WalkOfLegends
             Console.SetCursorPosition(0, map.cameraHeight + 2);
 
             //Player Stats
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Blue;  //Re wrote hud into string.formats for ease of use/reading. 
             Console.WriteLine("");
             Console.WriteLine(breaker);
             Console.WriteLine("Player Stats:");           
-            Console.WriteLine("");                                                          
-            Console.WriteLine("Health: " + player.healthSystem.health);                      
-            Console.WriteLine("Health Status: " + healthStatus);
-            Console.WriteLine("Attack Power: " + player.attack);
-            Console.WriteLine("last Item Aquired: " + lastItem);
+            Console.WriteLine(string.Format("Health: {0}",player.healthSystem.health));                      
+            Console.WriteLine(string.Format("Coins: {0}$",player.coins));                                                          
+            Console.WriteLine(string.Format("Health Status: {0}",healthStatus));
+            Console.WriteLine(string.Format("Attack Power: {0}", player.attack));
+            Console.WriteLine(string.Format("last Item Aquired: {0}", lastItem));
             Console.WriteLine(breaker);
             Console.WriteLine("");
 

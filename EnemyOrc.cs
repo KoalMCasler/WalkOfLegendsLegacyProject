@@ -28,6 +28,7 @@ namespace WalkOfLegends
             damage = Settings.orcDamage;
             dir = "down";
             isDead = false;
+            enemyCount += 1;//fixes enemy count on HUD.
             //healthSystem = new HealthSystem(health); removed as not neaded, all covered by derived class.
         }
 
@@ -113,13 +114,14 @@ namespace WalkOfLegends
         {
             if (isDead == false)
             {
-                player.attack += damage;
+                player.coins += damage;
             }
             health = 0;
             map.map[posY, posX] = '`';
             Char = '`';
             map.DisplayMap();
             isDead = true;
+            enemyCount -= 1; //fixes enemy count on HUD.
             //enemyCount--;
         }
 

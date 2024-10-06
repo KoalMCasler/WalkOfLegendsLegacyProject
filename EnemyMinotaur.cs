@@ -28,6 +28,7 @@ namespace WalkOfLegends
             damage = Settings.minotaurDamage;
             dir = "down";
             isDead = false;
+            enemyCount += 1;//fixes enemy count on HUD.
             //healthSystem = new HealthSystem(health);
         }
 
@@ -99,8 +100,9 @@ namespace WalkOfLegends
         {
             if (isDead == false)
             {
-                player.attack += damage;
+                player.coins += damage;
             }
+            enemyCount -= 1;//fixes enemy count on HUD.
             health = 0;
             map.map[posY, posX] = '`';
             Char = '`';
