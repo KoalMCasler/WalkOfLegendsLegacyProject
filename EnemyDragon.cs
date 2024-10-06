@@ -132,11 +132,8 @@ namespace WalkOfLegends
 
         public void Die()
         {
-            if (isDead == false)
-            {
-                player.coins += damage;
-                player.hasKilledDragon = true;
-            }
+            GameManager.gameOver = true;
+            player.hasKilledDragon = true;
             health = 0;
             map.map[posY, posX] = '`';
             Char = '`';

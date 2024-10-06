@@ -72,10 +72,16 @@ namespace WalkOfLegends
                 map.DisplayMap();
                 ui.Draw();
             }
-            if (gameOver == true)
+            if (gameOver == true && !player.hasKilledDragon)
             {
                 Console.Clear();
                 Console.WriteLine("Game Over, try again");
+            }
+            else if(gameOver == true && player.hasKilledDragon)
+            {
+                Console.Clear();
+                ui.ShowWinScreen();
+                Console.ReadKey(true);
             }
 
         }

@@ -235,6 +235,36 @@ namespace WalkOfLegends
             }
         }
 
+        public void ShowWinScreen()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("{================================================================}");
+            Console.WriteLine("{================================================================}");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("");
+            Console.WriteLine("  ##     #     ##    #      ##      ##  ##        ####   ###### ");     
+            Console.WriteLine("   ##   ###   ##    # #     ##      ####         ##  ##  ##     ");       
+            Console.WriteLine("    ## ## ## ##    #####    ##      ##           ##  ##  ####   ");       
+            Console.WriteLine("     ###   ###    ##   ##   ##      ####         ##  ##  ##     ");       
+            Console.WriteLine("      #     #    ##     ##  ######  ##  ##        ####   ##     ");       
+            Console.WriteLine();
+            Console.WriteLine("      ##      ######  ######  ######  ###   ##  ####    ##### ");
+            Console.WriteLine("      ##      ##      ##      ##      ## #  ##  ##  #  ##     ");
+            Console.WriteLine("      ##      ####    ##  ##  ####    ## ## ##  ##  #   ####  ");
+            Console.WriteLine("      ##      ##      ##   #  ##      ##  # ##  ##  #      ## ");
+            Console.WriteLine("      ######  ######  ######  ######  ##   ###  ####   #####  ");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("{================================================================}");
+            Console.WriteLine("{================================================================}");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("{================================================================}");
+            Console.WriteLine(string.Format("You won with: \n{0}:Coins \n{1}:Health \n{2}:Remaining Enemies",player.coins,player.healthSystem.health,Enemy.enemyCount));
+            Console.WriteLine("{================================================================}");
+        }
+
         public void UpdateHUD(Enemy ey)
         {
             enemy = ey;
