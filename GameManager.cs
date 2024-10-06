@@ -17,12 +17,14 @@ namespace WalkOfLegends
         public static ItemManager itemManager;
         public static UI ui;
         private QuestManager questManager;
+        private ShopManager shopManager;
         public static bool gameOver;
+        public bool isShopOpen;
 
         public void Play()
         {
             //Init
-            player = new Player();
+            player = new Player(this);
             map = new Map(player);
             enemyManager = new EnemyManager(player, map);
             gameOver = false;
@@ -32,14 +34,15 @@ namespace WalkOfLegends
             ui.LoadStartingScreen();
             itemManager = new ItemManager(player, map, ui);
             player.SetStuff(map, enemyManager, ui, itemManager);
+            shopManager = new ShopManager(player);
             map.DisplayMap();
+            isShopOpen = false;
 
-            enemyManager.PlaceGoblins(5);
-            enemyManager.PlaceOrcs(25);
-            enemyManager.PlaceMinotaurs(5);
+            enemyManager.PlaceGoblins(10);
+            enemyManager.PlaceOrcs(30);
+            enemyManager.PlaceMinotaurs(7);
             enemyManager.PlaceDragons(1);
 
-            itemManager.PlaceHealthPotions(25);
             itemManager.PlaceInvincibility(10);
             itemManager.PlaceFreeze(10);
 
@@ -51,15 +54,17 @@ namespace WalkOfLegends
                     gameOver = true;
                 }
 
-                GetInput();
-
                 //Update
+                GetInput();
                 itemManager.UpdateItems();
                 player.Update(input);
+                if(isShopOpen)
+                {
+                    map.DisplayShop();
+                    shopManager.ShopInput();
+                }
                 questManager.Update();
                 enemyManager.UpdateEnemies();
-
-
                 //Draw
                 itemManager.DrawItems();
                 enemyManager.DrawEnemies();

@@ -22,31 +22,6 @@ namespace WalkOfLegends
             items = new List<Item>();
         }
 
-
-        public void PlaceHealthPotions(int num)
-        {
-            Random random = new Random();
-
-            for (int i = 0; i < num; i++)
-            {
-                while (true)
-                {
-                    int x = random.Next(2, map.width - 2);
-                    int y = random.Next(2, map.height - 2);
-
-                    if (map.map[y, x] == '`')
-                    {
-                        ItemHealth healthPotion = new ItemHealth(map, player, ui);
-                        healthPotion.posX = x;
-                        healthPotion.posY = y;
-                        map.map[y, x] = healthPotion.Char;
-                        items.Add(healthPotion);
-                        break;
-                    }
-                }
-            }
-        }
-
         public void PlaceInvincibility(int num)
         {
             Random random = new Random();

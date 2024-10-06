@@ -114,7 +114,7 @@ namespace WalkOfLegends
         {
             if (isDead == false)
             {
-                player.coins += damage;
+                player.coins += Settings.orcGoldDrop;
                 player.killCount += 1;
             }
             health = 0;

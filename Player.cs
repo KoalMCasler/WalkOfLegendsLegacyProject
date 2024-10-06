@@ -28,9 +28,13 @@ namespace WalkOfLegends
         private EnemyManager enemyManager;
         private ItemManager itemManager;
         public HealthSystem healthSystem;
+        private GameManager gameManager;
         private UI ui;
 
-
+        public Player(GameManager gm)
+        {
+            gameManager = gm;
+        }
         public void SetStuff(Map map, EnemyManager enemyManager, UI ui, ItemManager itemManager)
         {
             this.map = map;
@@ -55,18 +59,26 @@ namespace WalkOfLegends
             if (input.Key == ConsoleKey.W)
             {
                 Move(0, -1);
+                gameManager.isShopOpen = false;
             }
             else if (input.Key == ConsoleKey.A)
             {
                 Move(-1, 0);
+                gameManager.isShopOpen = false;
             }
             else if (input.Key == ConsoleKey.S)
             {
                 Move(0, 1);
+                gameManager.isShopOpen = false;
             }
             else if (input.Key == ConsoleKey.D)
             {
                 Move(1, 0);
+                gameManager.isShopOpen = false;
+            }
+            else if(input.Key == ConsoleKey.P)
+            {
+                gameManager.isShopOpen = true;
             }
         }
 

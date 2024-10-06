@@ -155,15 +155,17 @@ namespace WalkOfLegends
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 5);
             Console.WriteLine("D - Move Right");
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 6);
-            Console.WriteLine("R - Restart Game");
+            Console.WriteLine("P - Open Shop");
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 7);
-            Console.WriteLine("ESCAPE - Quit Game");
+            Console.WriteLine("R - Restart Game");
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 8);
+            Console.WriteLine("ESCAPE - Quit Game");
+            Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 9);
             Console.WriteLine(breaker);
 
             //Draws QuestLog
             Console.ForegroundColor = ConsoleColor.Blue;
-            int questLogStartPosY = map.cameraHeight-6;
+            int questLogStartPosY = map.cameraHeight-5;
             int questLogStartPosX = controlsStartPosX;
             Console.SetCursorPosition(questLogStartPosX, questLogStartPosY);
             Console.WriteLine(breaker);
@@ -181,7 +183,7 @@ namespace WalkOfLegends
 
             //Legend
             Console.ForegroundColor = ConsoleColor.White;
-            int legendStartPosY = map.cameraHeight;
+            int legendStartPosY = map.cameraHeight+1;
             int legendStartPosX = controlsStartPosX;
             Console.SetCursorPosition(legendStartPosX, legendStartPosY);
             Console.WriteLine(breaker);

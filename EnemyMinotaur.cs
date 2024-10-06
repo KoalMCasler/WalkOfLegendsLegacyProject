@@ -100,7 +100,7 @@ namespace WalkOfLegends
         {
             if (isDead == false)
             {
-                player.coins += damage;
+                player.coins += Settings.minotaurGoldDrop;
                 player.killCount += 1;
             }
             enemyCount -= 1;//fixes enemy count on HUD.

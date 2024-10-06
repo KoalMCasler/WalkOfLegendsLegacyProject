@@ -24,6 +24,11 @@ namespace WalkOfLegends
         //-------------
         //Item Settings
         //-------------
+        //Shop settings
+        public static int shopDamageCost = 50;
+        public static int shopHealthCost = 25;
+        public static int shopDamageValue = 50;
+        public static int shopHealthValue = 30;
         //Health Potion Settings
         public static char healthPotionChar = '@';
         public static string healthPotionName = "Health Potion";
@@ -49,17 +54,20 @@ namespace WalkOfLegends
         public static string goblinName = "Goblin";
         public static int goblinHealth = 150;
         public static int goblinDamage = 20;
+        public static int goblinGoldDrop = 25;
         public static string goblinDir = "down";
         //Orc Settings
         public static char orcChar = 'O';
         public static string orcName = "Orc";
         public static int orcHealth = 200;
         public static int orcDamage = 40;
+        public static int orcGoldDrop = 50;
         //Minotaur Settings
         public static char minotaurChar = '}';
         public static string minotaurName = "Minotaur";
         public static int minotaurHealth = 400;
         public static int minotaurDamage = 50;
+        public static int minotaurGoldDrop = 75;
 
     }
 }

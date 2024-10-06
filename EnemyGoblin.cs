@@ -99,7 +99,7 @@ namespace WalkOfLegends
         {
             if (isDead == false)
             {
-                player.coins += damage;
+                player.coins += Settings.goblinGoldDrop;
                 player.killCount += 1;
             }
             health = 0;

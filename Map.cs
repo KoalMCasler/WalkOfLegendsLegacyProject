@@ -13,7 +13,9 @@ namespace WalkOfLegends
     internal class Map
     {
         static string[] mapFile;
+        static string[] shopFile;
         public char[,] map;
+        public char[,] shopMap;
         public int cameraWidth = Settings.cameraWidth;
         public int cameraHeight = Settings.cameraHeight;
         public int width;
@@ -29,7 +31,10 @@ namespace WalkOfLegends
         {
             mapFile = File.ReadAllLines(@"Map1.txt");
 
+            shopFile = File.ReadAllLines(@"shopMap.txt");
+
             map = new char[mapFile.Length, mapFile[0].Length];
+            shopMap = new char[shopFile.Length,shopFile[0].Length];
 
             width = map.GetLength(1);
             height = map.GetLength(0);
@@ -44,6 +49,7 @@ namespace WalkOfLegends
             }
 
             MakeMap();
+            MakeShop();
 
             map[player.posX, player.posY] = player.playerChar;
 
@@ -63,8 +69,72 @@ namespace WalkOfLegends
             }
         }
 
+        public void MakeShop()
+        {
+            for (int i = 0; i < shopFile.Length; i++)
+            {
+                for (int j = 0; j < shopFile[0].Length; j++)
+                {
+                    shopMap[i, j] = shopFile[i][j];
+                }
+            }
+        }
 
-        //Draws map, and creates a temporary, smaller map that displays based on the players position
+
+
+
+        /// <summary>
+        /// Shoes shop menu when shop input is made
+        /// </summary>
+        public void DisplayShop()
+        {
+            Console.CursorVisible = false;
+
+            ConsoleColor[,] colors = new ConsoleColor[cameraHeight, cameraWidth];
+            char[,] tempMap = new char[cameraHeight, cameraWidth];
+
+            Console.SetCursorPosition(0, 0);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("+");
+            Console.WriteLine(new string('-', cameraWidth) + "+");
+
+            for (int row = 0; row < cameraHeight; row++)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("|");
+
+                for (int col = 0; col < cameraWidth; col++)
+                {
+                    int mapRow = row;
+                    int mapCol = col;
+
+                    if (mapRow >= 0 && mapRow < height && mapCol >= 0 && mapCol < width)
+                    {
+                        tempMap[row, col] = shopMap[mapRow, mapCol];
+                    }
+                    else
+                    {
+                        tempMap[row, col] = '^';
+                    }
+
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(tempMap[row, col]);
+                }
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("|");
+                Console.WriteLine();
+            }
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("+");
+            Console.WriteLine(new string('-', cameraWidth) + "+");
+
+        }
+
+        /// <summary>
+        /// Draws map, and creates a temporary, smaller map that displays based on the players position
+        /// </summary>
         public void DisplayMap()
         {
             Console.CursorVisible = false;

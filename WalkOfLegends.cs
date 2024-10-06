@@ -13,7 +13,7 @@ using System.Reflection.Emit;
 
 namespace WalkOfLegends
 {
-    internal class Program
+    internal class WalkOfLegends
     {
 
         static GameManager gameManager = new GameManager();
