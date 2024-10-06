@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FirstPlayable_CalebWolthers_22012024;
 
 namespace WalkOfLegends
 {
@@ -12,16 +13,18 @@ namespace WalkOfLegends
         private Player player;
         private Map map;
         private EnemyManager enemyManager;
+        private QuestManager questManager;
         public string breaker = "------------------------";
         public string healthStatus;
         public string lastItem;
         public Enemy enemy; 
 
-        public UI(Player player, Map map, EnemyManager enemyManager)
+        public UI(Player p, Map m, EnemyManager em, QuestManager qm)
         {
-            this.player = player;
-            this.map = map;
-            this.enemyManager = enemyManager;
+            player = p;
+            map = m;
+            enemyManager = em;
+            questManager = qm;
         }
 
 
@@ -124,7 +127,6 @@ namespace WalkOfLegends
 
             //Player Stats
             Console.ForegroundColor = ConsoleColor.Blue;  //Re wrote hud into string.formats for ease of use/reading. 
-            Console.WriteLine("");
             Console.WriteLine(breaker);
             Console.WriteLine("Player Stats:");           
             Console.WriteLine(string.Format("Health: {0}",player.healthSystem.health));                      
@@ -133,7 +135,6 @@ namespace WalkOfLegends
             Console.WriteLine(string.Format("Attack Power: {0}", player.attack));
             Console.WriteLine(string.Format("last Item Aquired: {0}", lastItem));
             Console.WriteLine(breaker);
-            Console.WriteLine("");
 
             ShowEnemyHUD(enemy);
 
@@ -160,9 +161,27 @@ namespace WalkOfLegends
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 8);
             Console.WriteLine(breaker);
 
+            //Draws QuestLog
+            Console.ForegroundColor = ConsoleColor.Blue;
+            int questLogStartPosY = map.cameraHeight-6;
+            int questLogStartPosX = controlsStartPosX;
+            Console.SetCursorPosition(questLogStartPosX, questLogStartPosY);
+            Console.WriteLine(breaker);
+            Console.SetCursorPosition(questLogStartPosX, questLogStartPosY + 1);
+            Console.WriteLine("Quests:");
+            Console.SetCursorPosition(questLogStartPosX, questLogStartPosY + 2);
+            Console.WriteLine(string.Format("Q1: {0}",questManager.quest1));
+            Console.SetCursorPosition(questLogStartPosX, questLogStartPosY + 3);
+            Console.WriteLine(string.Format("Q2: {0}",questManager.quest2));
+            Console.SetCursorPosition(questLogStartPosX, questLogStartPosY + 4);
+            Console.WriteLine(string.Format("Q3: {0}",questManager.quest3));
+            Console.SetCursorPosition(questLogStartPosX, questLogStartPosY + 5);
+            Console.WriteLine(breaker);
+            
+
             //Legend
             Console.ForegroundColor = ConsoleColor.White;
-            int legendStartPosY = map.cameraHeight + 3;
+            int legendStartPosY = map.cameraHeight;
             int legendStartPosX = controlsStartPosX;
             Console.SetCursorPosition(legendStartPosX, legendStartPosY);
             Console.WriteLine(breaker);
@@ -214,14 +233,9 @@ namespace WalkOfLegends
             }
         }
 
-
         public void UpdateHUD(Enemy ey)
         {
             enemy = ey;
         }
-
-
-
-
     }
 }

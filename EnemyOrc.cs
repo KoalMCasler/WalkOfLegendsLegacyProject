@@ -115,6 +115,7 @@ namespace WalkOfLegends
             if (isDead == false)
             {
                 player.coins += damage;
+                player.killCount += 1;
             }
             health = 0;
             map.map[posY, posX] = '`';

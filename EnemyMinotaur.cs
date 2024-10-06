@@ -101,6 +101,7 @@ namespace WalkOfLegends
             if (isDead == false)
             {
                 player.coins += damage;
+                player.killCount += 1;
             }
             enemyCount -= 1;//fixes enemy count on HUD.
             health = 0;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstPlayable_CalebWolthers_22012024;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace WalkOfLegends
         public static EnemyManager enemyManager;
         public static ItemManager itemManager;
         public static UI ui;
+        private QuestManager questManager;
         public static bool gameOver;
 
         public void Play()
@@ -25,7 +27,8 @@ namespace WalkOfLegends
             enemyManager = new EnemyManager(player, map);
             gameOver = false;
             map.StartMap();
-            ui = new UI(player, map, enemyManager);
+            questManager = new QuestManager(player);
+            ui = new UI(player, map, enemyManager, questManager);
             ui.LoadStartingScreen();
             itemManager = new ItemManager(player, map, ui);
             player.SetStuff(map, enemyManager, ui, itemManager);
@@ -53,6 +56,7 @@ namespace WalkOfLegends
                 //Update
                 itemManager.UpdateItems();
                 player.Update(input);
+                questManager.Update();
                 enemyManager.UpdateEnemies();
 
 

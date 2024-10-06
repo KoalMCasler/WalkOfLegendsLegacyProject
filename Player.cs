@@ -15,6 +15,8 @@ namespace WalkOfLegends
         public int health;
         public int attack;
         public int coins;
+        public int killCount;
+        public bool hasKilledDragon;
         public int posX;
         public int posY;
         public int nextPosX;
@@ -38,11 +40,13 @@ namespace WalkOfLegends
             health = Settings.playerHealth;
             healthSystem = new HealthSystem(health);
             moves = 0;
+            killCount = 0;
             attack = Settings.playerAttack;
             playerChar = Settings.playerChar;
             posX = Settings.playerStartPosX;
             posY = Settings.playerStartPosY;
             freezeEnemies = false;
+            hasKilledDragon = false;
         }
 
 
