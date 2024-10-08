@@ -4,9 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WalkOfLegends;
 
-namespace FirstPlayable_CalebWolthers_22012024
+namespace WalkOfLegends
 {
     internal class ShopManager
     {
