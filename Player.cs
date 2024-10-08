@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WalkOfLegends
 {
@@ -79,6 +80,14 @@ namespace WalkOfLegends
             else if(input.Key == ConsoleKey.P)
             {
                 gameManager.isShopOpen = true;
+            }
+            else if(input.Key == ConsoleKey.R)
+            {
+                gameManager.Play();
+            }
+            else if(input.Key == ConsoleKey.Escape)
+            {
+                Environment.Exit(0);
             }
         }
 
