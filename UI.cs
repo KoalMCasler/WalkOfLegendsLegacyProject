@@ -57,7 +57,7 @@ namespace WalkOfLegends
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(" and destroy him");
             Console.WriteLine();
-            Console.Write(" Defeat as many enemies as you can before reaching the ");
+            Console.Write(" Defeat as many enemies as you can to build up your character and face off against the ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("dragon");
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -155,7 +155,7 @@ namespace WalkOfLegends
 
             //Draws QuestLog
             Console.ForegroundColor = ConsoleColor.Blue;
-            int questLogStartPosY = map.cameraHeight-5;
+            int questLogStartPosY = map.cameraHeight-4;
             int questLogStartPosX = controlsStartPosX;
             Console.SetCursorPosition(questLogStartPosX, questLogStartPosY);
             Console.WriteLine(breaker);
@@ -173,7 +173,7 @@ namespace WalkOfLegends
 
             //Legend
             Console.ForegroundColor = ConsoleColor.White;
-            int legendStartPosY = map.cameraHeight+1;
+            int legendStartPosY = map.cameraHeight;
             int legendStartPosX = controlsStartPosX;
             Console.SetCursorPosition(legendStartPosX, legendStartPosY);
             Console.WriteLine(breaker);
