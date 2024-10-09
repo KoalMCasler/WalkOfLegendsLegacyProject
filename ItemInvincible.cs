@@ -34,7 +34,7 @@ namespace WalkOfLegends
                 if (player.healthSystem.health < 98999999)
                 {
                     ui.lastItem = name;
-                    int originalHealth = player.healthSystem.health;
+                    float originalHealth = player.healthSystem.health;
                     player.healthSystem.health = 99999999;
                     //UI.lastItem = "Invincibility";
                     await Task.Delay(effectTime);

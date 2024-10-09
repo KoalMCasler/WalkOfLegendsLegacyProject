@@ -10,9 +10,9 @@ namespace WalkOfLegends
     {
 
 
-        public int health;
+        public float health;
 
-        public HealthSystem(int health)
+        public HealthSystem(float health)
         {
             this.health = health;
         }

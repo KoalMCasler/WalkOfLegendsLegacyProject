@@ -13,7 +13,7 @@ namespace WalkOfLegends
     {
         public char playerChar;
         public int moves;
-        public int health;
+        public float health;
         public int attack;
         public int coins;
         public int killCount;
@@ -24,6 +24,8 @@ namespace WalkOfLegends
         public int nextPosY;
         public int lastPosX;
         public int lastPosY;
+        public int shopPosX;
+        public int shopPosY;
         public bool freezeEnemies;
         private Map map;
         private EnemyManager enemyManager;
@@ -57,6 +59,7 @@ namespace WalkOfLegends
 
         public void Update(ConsoleKeyInfo input)
         {
+            CheckForShop();
             if (input.Key == ConsoleKey.W)
             {
                 Move(0, -1);
@@ -76,10 +79,6 @@ namespace WalkOfLegends
             {
                 Move(1, 0);
                 gameManager.isShopOpen = false;
-            }
-            else if(input.Key == ConsoleKey.P)
-            {
-                gameManager.isShopOpen = true;
             }
             else if(input.Key == ConsoleKey.R)
             {
@@ -102,19 +101,22 @@ namespace WalkOfLegends
 
             lastPosY = posY;
             lastPosX = posX;
-
+            
             CheckNextMove();
 
             posY = nextPosY;
             posX = nextPosX;
-
             //EnemyManager.UpdateEnemies();
         }
 
         public void Draw()
         {
-            map.map[lastPosY, lastPosX] = '`';
 
+            map.map[lastPosY, lastPosX] = '`';
+            if(shopPosX != posX || shopPosY != posY)
+            {
+                map.map[shopPosY,shopPosX] = '§';
+            }
             map.map[posY, posX] = playerChar;
         }
 
@@ -150,7 +152,6 @@ namespace WalkOfLegends
 
                 CheckForEnemies();
                 CheckForItems();
-
             }
         }
 
@@ -181,6 +182,19 @@ namespace WalkOfLegends
                 {
                     item.DoYourJob();
                 }
+            }
+        }
+
+        /// <summary>
+        /// Checks to see if player is on a shop tile. 
+        /// </summary>
+        public void CheckForShop()
+        {
+            if (map.map[posY, posX] == '§' )
+            {
+                shopPosY = posY;
+                shopPosX = posX;
+                gameManager.isShopOpen = true;
             }
         }
 

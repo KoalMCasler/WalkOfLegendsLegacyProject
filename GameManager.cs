@@ -24,7 +24,7 @@ namespace WalkOfLegends
         {
             //Init
             player = new Player(this);
-            map = new Map(player);
+            map = new Map(player,this);
             enemyManager = new EnemyManager(player, map);
             gameOver = false;
             map.StartMap();
@@ -33,7 +33,8 @@ namespace WalkOfLegends
             ui.LoadStartingScreen();
             itemManager = new ItemManager(player, map, ui);
             player.SetStuff(map, enemyManager, ui, itemManager);
-            shopManager = new ShopManager(player);
+            shopManager = new ShopManager(player, map, ui);
+            map.assignShopManager(shopManager);
             map.DisplayMap();
             isShopOpen = false;
 
@@ -43,7 +44,7 @@ namespace WalkOfLegends
             enemyManager.PlaceDragons(1);
 
             itemManager.PlaceInvincibility(10);
-            itemManager.PlaceFreeze(10);
+            //itemManager.PlaceFreeze(10);
 
 
             while (gameOver == false)
@@ -57,18 +58,14 @@ namespace WalkOfLegends
                 GetInput();
                 itemManager.UpdateItems();
                 player.Update(input);
-                if(isShopOpen)
-                {
-                    map.DisplayShop();
-                    shopManager.ShopInput();
-                }
+                player.CheckForShop(); // will not function anywhare else. 
                 questManager.Update();
                 enemyManager.UpdateEnemies();
                 //Draw
                 itemManager.DrawItems();
                 enemyManager.DrawEnemies();
                 player.Draw();
-                map.DisplayMap();
+                map.Draw();
                 ui.Draw();
             }
             if (gameOver == true && !player.hasKilledDragon)

@@ -13,7 +13,7 @@ namespace WalkOfLegends
     internal abstract class Enemy
     {
         public char Char;
-        public int health;
+        public float health;
         public int maxHealth;
         public int damage;
         public string dir;

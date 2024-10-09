@@ -27,6 +27,7 @@ namespace WalkOfLegends
         //Shop settings
         public static int shopDamageCost = 50;
         public static int shopHealthCost = 25;
+        public static int freezeCost = 30;
         public static int shopDamageValue = 50;
         public static int shopHealthValue = 30;
         //Health Potion Settings

@@ -57,7 +57,6 @@ namespace WalkOfLegends
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(" and destroy him");
             Console.WriteLine();
-            Console.WriteLine(" Your attack power increases with every kill.");
             Console.Write(" Defeat as many enemies as you can before reaching the ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("dragon");
@@ -73,24 +72,20 @@ namespace WalkOfLegends
         
         public void Draw()
         {
-            if (player.healthSystem.health >= 100)
+            if (player.healthSystem.health == Settings.playerHealth)
             { healthStatus = "Perfect Health"; }
 
-            else if (player.healthSystem.health < 99 && player.healthSystem.health >= 90)
+            else if (player.healthSystem.health < Settings.playerHealth && player.healthSystem.health >= Settings.playerHealth*0.75f) // 3/4 of starting health
             { healthStatus = "Healthy"; }
 
-            else if (player.healthSystem.health < 89 && player.healthSystem.health >= 75)
+            else if (player.healthSystem.health < Settings.playerHealth*0.75f && player.healthSystem.health >= Settings.playerHealth*0.5f) // 1/2 of starting health
             { healthStatus = "Hurt"; }
 
-            else if (player.healthSystem.health < 74 && player.healthSystem.health >= 50)
+            else if (player.healthSystem.health < Settings.playerHealth*0.5f && player.healthSystem.health >= Settings.playerHealth*0.25f) // 1/4 of starting health
             { healthStatus = "Badly Hurt"; }
 
-            else if (player.healthSystem.health < 49 && player.healthSystem.health >= 20)
+            else if (player.healthSystem.health < Settings.playerHealth*0.25f && player.healthSystem.health >= 1)
             { healthStatus = "Danger"; }
-
-            else if (player.healthSystem.health < 19 && player.healthSystem.health > 0)
-            { healthStatus = "ALMOST DEAD"; }
-
             else { healthStatus = "Dead"; }
 
 
@@ -129,14 +124,12 @@ namespace WalkOfLegends
             Console.WriteLine(breaker);
             Console.WriteLine("Player Stats:");           
             Console.WriteLine(string.Format("Health: {0}",player.healthSystem.health));                      
-            Console.WriteLine(string.Format("Coins: {0}$",player.coins));                                                          
+            Console.WriteLine(string.Format("Money: {0}$",player.coins));                                                          
             Console.WriteLine(string.Format("Health Status: {0}",healthStatus));
             Console.WriteLine(string.Format("Attack Power: {0}", player.attack));
             Console.WriteLine(string.Format("last Item Aquired: {0}", lastItem));
             Console.WriteLine(breaker);
-
             ShowEnemyHUD(enemy);
-
             //Controls 
             Console.ForegroundColor = ConsoleColor.Red;
             int controlsStartPosY = 0;
@@ -154,12 +147,10 @@ namespace WalkOfLegends
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 5);
             Console.WriteLine("D - Move Right");
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 6);
-            Console.WriteLine("P - Open Shop");
-            Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 7);
             Console.WriteLine("R - Restart Game");
-            Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 8);
+            Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 7);
             Console.WriteLine("ESCAPE - Quit Game");
-            Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 9);
+            Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 8);
             Console.WriteLine(breaker);
 
             //Draws QuestLog
@@ -197,20 +188,16 @@ namespace WalkOfLegends
             Console.SetCursorPosition(legendStartPosX, legendStartPosY + 5);
             Console.WriteLine("~ - Water");
             Console.SetCursorPosition(legendStartPosX, legendStartPosY + 6);
-            //Console.WriteLine(ItemHealth.itemChar + " - Health Potion");
+            Console.WriteLine("§ - Shop");
             Console.SetCursorPosition(legendStartPosX, legendStartPosY + 7);
-            //Console.WriteLine(ItemInvincible.itemChar + " - Invincibility");
-            Console.SetCursorPosition(legendStartPosX, legendStartPosY + 8);
-            //Console.WriteLine(ItemShield.itemChar + " - Shield");
-            Console.SetCursorPosition(legendStartPosX, legendStartPosY + 9);
             Console.WriteLine("G - Goblin");
-            Console.SetCursorPosition(legendStartPosX, legendStartPosY + 10);
+            Console.SetCursorPosition(legendStartPosX, legendStartPosY + 8);
             Console.WriteLine("O - Orc");
-            Console.SetCursorPosition(legendStartPosX, legendStartPosY + 11);
+            Console.SetCursorPosition(legendStartPosX, legendStartPosY + 9);
             Console.WriteLine("{ - Minotaur");
-            Console.SetCursorPosition(legendStartPosX, legendStartPosY + 12);
+            Console.SetCursorPosition(legendStartPosX, legendStartPosY + 10);
             Console.WriteLine("D - Dragon");
-            Console.SetCursorPosition(legendStartPosX, legendStartPosY + 14);
+            Console.SetCursorPosition(legendStartPosX, legendStartPosY + 11);
             Console.WriteLine(breaker);
 
 
@@ -222,7 +209,6 @@ namespace WalkOfLegends
             if (ey != null)
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine(breaker);
                 Console.WriteLine("Number of Enemies: " + Enemy.enemyCount);
                 Console.WriteLine("");
                 Console.WriteLine("Last enemy encountered: " + ey.name);

@@ -21,10 +21,31 @@ namespace WalkOfLegends
         public int width;
         public int height;
         private Player player;
+        private ShopManager shopManager;
+        private GameManager gameManager;
         
-        public Map(Player player)
+        public Map(Player p, GameManager gm)
         {
-            this.player = player;
+            player = p;
+            gameManager = gm;
+        }
+
+        public void assignShopManager(ShopManager shop)
+        {
+            shopManager = shop;
+        }
+
+        public void Draw()
+        {
+            if(gameManager.isShopOpen)
+            {
+                DisplayShop();
+                shopManager.ShopInput();
+            }
+            else
+            {
+                DisplayMap();
+            }
         }
 
         public void StartMap()
@@ -199,7 +220,7 @@ namespace WalkOfLegends
                 case 'D': return ConsoleColor.Red;
                 case '!': return ConsoleColor.DarkRed;
                 case '$': return ConsoleColor.Gray;
-                case '§': return ConsoleColor.DarkRed;
+                case '§': return ConsoleColor.Red;
                 case '*': return ConsoleColor.Gray;
                 case 'M': return ConsoleColor.Magenta;
                 case '7': return ConsoleColor.White;
