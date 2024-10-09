@@ -155,7 +155,7 @@ namespace WalkOfLegends
 
             //Draws QuestLog
             Console.ForegroundColor = ConsoleColor.Blue;
-            int questLogStartPosY = map.cameraHeight-4;
+            int questLogStartPosY = map.cameraHeight-6;
             int questLogStartPosX = controlsStartPosX;
             Console.SetCursorPosition(questLogStartPosX, questLogStartPosY);
             Console.WriteLine(breaker);
